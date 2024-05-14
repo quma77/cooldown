@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="main.css" />
+    <link rel="stylesheet" href="reset.css" />
+    <title>COOLDOWN</title>
+  </head>
+  <body>
+    <header class="header">
+      <div>
+        <h2><span>Cool</span>Down</h2>
+      </div>
+      <div class="logo">
+        <img src="img_site/Picsart_24-05-13_22-57-54-609.png" alt="" />
+      </div>
+      <div>
+        <button>Русский</button>
+      </div>
+    </header>
+    <main class="main">
+      <hr />
+      <h1>Криптовалютный обмен</h1>
+
+      <section class="exchange-form">
+        <h2>Выберите криптовалюту для обмена</h2>
+
+        <div id="crypto-prices"></div>
+
+        <form id="exchangeForm">
+          <label for="amount">Сумма:</label>
+          <input type="number" id="amount" name="amount" required />
+
+          <label for="fromCurrency">Из валюты:</label>
+          <select id="fromCurrency" name="fromCurrency">
+            <option value="BTC" id="btcI"></option>
+            <option value="ETH" id="etcI"></option>
+            <option value="XRP" id="xrpI"></option>
+            <option value="TON" id="tonI"></option>
+            <option value="SOL" id="solI"></option>
+            <option value="TRX" id="trxI"></option>
+            <option value="DOT" id="dotI"></option>
+            <option value="ADA" id="adaI"></option>
+            <option value="LTC" id="ltcI"></option>
+          </select>
+
+          <label for="toCurrency">В валюту:</label>
+          <select id="toCurrency" name="toCurrency">
+            <option value="BTC" id="btcO"></option>
+            <option value="ETH" id="etcO"></option>
+            <option value="XRP" id="xrpO"></option>
+            <option value="TON" id="tonO"></option>
+            <option value="SOL" id="solO"></option>
+            <option value="TRX" id="trxO"></option>
+            <option value="DOT" id="dotO"></option>
+            <option value="ADA" id="adaO"></option>
+            <option value="LTC" id="ltcO"></option>
+          </select>
+          <div class="profit_o">
+            <label for="amount">Вы получите:</label>
+            <input
+              type="text"
+              id="amounts"
+              name="amount"
+              required
+              readonly
+              value=""
+            />
+          </div>
+
+          <button type="submit">Обменять</button>
+        </form>
+      </section>
+    </main>
+  </body>
+
+  <footer>
+    <p>&copy; 2022 Криптовалютный обмен. Все права защищены.</p>
+  </footer>
+
+  <script src="main.js"></script>
+</html>
