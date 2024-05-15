@@ -24,16 +24,16 @@
       <h1>Криптовалютный обмен</h1>
 
       <section class="exchange-form">
-        <h2>Выберите криптовалюту для обмена</h2>
+        <h2>Крипто обмен</h2>
 
         <div id="crypto-prices"></div>
 
         <form id="exchangeForm">
           <label for="amount">Сумма:</label>
-          <input type="number" id="amount" name="amount" required />
+          <input type="number" id="amount" name="amount"  value="1" required />
 
           <label for="fromCurrency">Из валюты:</label>
-          <select id="fromCurrency" name="fromCurrency">
+          <select id="fromCurrency" name="fromCurrency" required>
             <option value="BTC" id="btcI"></option>
             <option value="ETH" id="etcI"></option>
             <option value="XRP" id="xrpI"></option>
@@ -46,7 +46,7 @@
           </select>
 
           <label for="toCurrency">В валюту:</label>
-          <select id="toCurrency" name="toCurrency">
+          <select id="toCurrency" name="toCurrency" required>
             <option value="BTC" id="btcO"></option>
             <option value="ETH" id="etcO"></option>
             <option value="XRP" id="xrpO"></option>
@@ -57,6 +57,7 @@
             <option value="ADA" id="adaO"></option>
             <option value="LTC" id="ltcO"></option>
           </select>
+
           <div class="profit_o">
             <label for="amount">Вы получите:</label>
             <input
@@ -69,14 +70,38 @@
             />
           </div>
 
-          <button type="submit">Обменять</button>
+          <button type="submit" id="exchange-button">Обменять</button>
+          <script>
+            event.preventDefault();
+
+            document
+              .getElementById("exchangeForm")
+              .addEventListener("submit", function (event) {
+                event.preventDefault(); // Предотвращаем стандартное действие формы (перезагрузку страницы)
+
+                // Добавляем проверку на заполненность полей
+                const form = document.getElementById("exchangeForm");
+                const formData = new FormData(form);
+
+                if (
+                  formData.get("inputFieldName") === "" ||
+                  formData.get("selectFieldName") === ""
+                ) {
+                  alert("Пожалуйста, заполните все поля!");
+                  return;
+                }
+
+                // Ваш код обработки формы, который будет выполнен только если все поля заполнены
+              });
+          </script>
         </form>
       </section>
+      <section class="start_by" style="display: none">SEX</section>
     </main>
   </body>
 
   <footer>
-    <p>&copy; 2022 Криптовалютный обмен. Все права защищены.</p>
+    <p>&copy; 2024 Криптовалютный обмен. Все права защищены.</p>
   </footer>
 
   <script src="main.js"></script>

@@ -47,6 +47,8 @@ header button {
 h1 {
   padding-top: 20px;
   text-align: center;
+  font-family: "Comfortaa", sans-serif;
+  padding-bottom: 50px; 
 }
 
 * {
@@ -117,7 +119,7 @@ footer {
   padding: 1em;
 }
 
-.profit_o input{
+.profit_o input {
   border: solid 1px rgba(0, 0, 0, 0.281);
   border-radius: 2px;
   padding: 7px 15px;
