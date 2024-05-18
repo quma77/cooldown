@@ -3,6 +3,7 @@
 body {
   background: white;
   overflow-x: hidden;
+  font-family: "Comfortaa", sans-serif;
 }
 
 h2 {
@@ -48,7 +49,7 @@ h1 {
   padding-top: 20px;
   text-align: center;
   font-family: "Comfortaa", sans-serif;
-  padding-bottom: 50px; 
+  padding-bottom: 50px;
 }
 
 * {
@@ -57,18 +58,10 @@ h1 {
   padding: 0;
 }
 
-body {
-  font-family: "Comfortaa", sans-serif;
-}
-
 header {
   background: #f2f2f2;
   padding: 1em;
   text-align: center;
-}
-
-body {
-  font-family: sans-serif;
 }
 
 .main {
@@ -124,4 +117,34 @@ footer {
   border-radius: 2px;
   padding: 7px 15px;
   width: 100%;
+}
+
+.img_trade img {
+  width: 110px;
+}
+
+.trade_text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+h3 {
+  text-align: center;
+  font-size: 22px;
+}
+
+.info_cash {
+  padding-top: 40px;
+  padding-bottom: 30px;
+  display: flex;
+  justify-content: center;
+  gap: 40px ;
+}
+
+.info_cash div {
+  width: 40%;
+  height: 500px;
+  background: #f2f2f2;
 }

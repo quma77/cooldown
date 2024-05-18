@@ -30,10 +30,18 @@
 
         <form id="exchangeForm">
           <label for="amount">Сумма:</label>
-          <input type="number" id="amount" name="amount"  value="1" required />
+          <input
+            type="number"
+            id="amount"
+            name="amount"
+            placeholder="Выберите сумму"
+            required
+            oninput="calculateProfit()"
+          />
 
           <label for="fromCurrency">Из валюты:</label>
           <select id="fromCurrency" name="fromCurrency" required>
+            <option value="" disabled selected>Выберите валюту</option>
             <option value="BTC" id="btcI"></option>
             <option value="ETH" id="etcI"></option>
             <option value="XRP" id="xrpI"></option>
@@ -47,6 +55,7 @@
 
           <label for="toCurrency">В валюту:</label>
           <select id="toCurrency" name="toCurrency" required>
+            <option value="" disabled selected>Выберите валюту</option>
             <option value="BTC" id="btcO"></option>
             <option value="ETH" id="etcO"></option>
             <option value="XRP" id="xrpO"></option>
@@ -69,40 +78,30 @@
               value=""
             />
           </div>
-
-          <button type="submit" id="exchange-button">Обменять</button>
-          <script>
-            event.preventDefault();
-
-            document
-              .getElementById("exchangeForm")
-              .addEventListener("submit", function (event) {
-                event.preventDefault(); // Предотвращаем стандартное действие формы (перезагрузку страницы)
-
-                // Добавляем проверку на заполненность полей
-                const form = document.getElementById("exchangeForm");
-                const formData = new FormData(form);
-
-                if (
-                  formData.get("inputFieldName") === "" ||
-                  formData.get("selectFieldName") === ""
-                ) {
-                  alert("Пожалуйста, заполните все поля!");
-                  return;
-                }
-
-                // Ваш код обработки формы, который будет выполнен только если все поля заполнены
-              });
-          </script>
+          <button type="button" onclick="validateForm()">Обменять</button>
         </form>
       </section>
-      <section class="start_by" style="display: none">SEX</section>
+      <section class="obmen">
+        <!-- <section class="obmen" style="display: none"> -->
+        <h3>Итоги транзакция</h3>
+        <div class="trade_text">
+          <div id="user_trade_num"></div>
+          <div id="user_trade_val"></div>
+          <div class="img_trade"><img src="img_site/trade.png" alt="" /></div>
+          <div id="colldown_trade_val"></div>
+          <div id="colldown_trade_num"></div>
+        </div>
+        <div class="info_cash">
+          <div cooldown_rec></div>
+          <div user_rec></div>
+        </div>
+      </section>
     </main>
+
+    <footer>
+      <p>&copy; 2024 Криптовалютный обмен. Все права защищены.</p>
+    </footer>
   </body>
-
-  <footer>
-    <p>&copy; 2024 Криптовалютный обмен. Все права защищены.</p>
-  </footer>
-
   <script src="main.js"></script>
+  <script src="obmen.js"></script>
 </html>

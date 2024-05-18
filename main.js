@@ -1,13 +1,13 @@
-const BTCUSDT = 61640.76;
-const ETHUSDT = 2885.87;
-const XRPUSDT = 0.5007;
-const SOLUSDT = 142.51;
-const TRXUSDT = 0.12558;
-const DOTUSDT = 6.503;
-const ADAUSDT = 0.4292;
-const LTCUSDT = 78.83;
+const BTCUSDT = 66922.71;
+const ETHUSDT = 3102.74;
+const XRPUSDT = 0.5252;
+const SOLUSDT = 169.39;
+const TRXUSDT = 0.12481;
+const DOTUSDT = 7.227;
+const ADAUSDT = 0.4813;
+const LTCUSDT = 84.46;
 
-const TONUSDT = 6.9152;
+const TONUSDT = 6.6532;
 
 document.getElementById("btcI").innerText = "Bitcoin (BTC) ≈ " + BTCUSDT;
 document.getElementById("etcI").innerText = "Ethereum (ETH) ≈ " + ETHUSDT;
@@ -29,6 +29,8 @@ document.getElementById("dotO").innerText = "Polkadot (DOT) ≈ " + DOTUSDT;
 document.getElementById("adaO").innerText = "Cardano (ADA) ≈ " + ADAUSDT;
 document.getElementById("ltcO").innerText = "Litecoin (LTC) ≈ " + LTCUSDT;
 
+var sex;
+
 document.getElementById("toCurrency").addEventListener("change", function () {
   var amountsInput = document.getElementById("amounts");
   const fromCurrency = document.getElementById("fromCurrency");
@@ -37,27 +39,35 @@ document.getElementById("toCurrency").addEventListener("change", function () {
   const amount = document.getElementById("amount").value; // значение в 1 строке
   if (selectedFromCurrency === "BTC" && selectedCurrency === "ETH") {
     var result = ((BTCUSDT * amount) / ETHUSDT).toFixed(4);
+    var result = (result / 100) * 101;
     amountsInput.value = result + " ETH";
   } else if (selectedFromCurrency === "BTC" && selectedCurrency === "XRP") {
     var result = ((BTCUSDT * amount) / XRPUSDT).toFixed(4);
+    var result = (result / 100) * 101;
     amountsInput.value = result + " XRP";
   } else if (selectedFromCurrency === "BTC" && selectedCurrency === "TON") {
     var result = ((BTCUSDT * amount) / TONUSDT).toFixed(4);
+    var result = (result / 100) * 101;
     amountsInput.value = result + " TON";
   } else if (selectedFromCurrency === "BTC" && selectedCurrency === "SOL") {
     var result = ((BTCUSDT * amount) / SOLUSDT).toFixed(4);
+    var result = (result / 100) * 101;
     amountsInput.value = result + " SOL";
   } else if (selectedFromCurrency === "BTC" && selectedCurrency === "TRX") {
     var result = ((BTCUSDT * amount) / TRXUSDT).toFixed(4);
+    var result = (result / 100) * 101;
     amountsInput.value = result + " TRX";
   } else if (selectedFromCurrency === "BTC" && selectedCurrency === "DOT") {
     var result = ((BTCUSDT * amount) / DOTUSDT).toFixed(4);
+    var result = (result / 100) * 101;
     amountsInput.value = result + " DOT";
   } else if (selectedFromCurrency === "BTC" && selectedCurrency === "ADA") {
     var result = ((BTCUSDT * amount) / ADAUSDT).toFixed(4);
+    var result = (result / 100) * 101;
     amountsInput.value = result + " ADA";
   } else if (selectedFromCurrency === "BTC" && selectedCurrency === "LTC") {
     var result = ((BTCUSDT * amount) / LTCUSDT).toFixed(4);
+    var result = (result / 100) * 101;
     amountsInput.value = result + " LTC";
   } else if (selectedFromCurrency === "BTC" && selectedCurrency === "BTC") {
     var result = ((BTCUSDT * amount) / BTCUSDT).toFixed(4);
@@ -295,8 +305,19 @@ document.getElementById("toCurrency").addEventListener("change", function () {
     var result = ((LTCUSDT * amount) / LTCUSDT).toFixed(4);
     amountsInput.value = result + " LTC";
   }
+  sex = result;
 });
 
+//
+//
+//
+///
+//
+//
+//
+//
+//
+//
 document.getElementById("fromCurrency").addEventListener("change", function () {
   var amountsInput = document.getElementById("amounts");
   const fromCurrency = document.getElementById("toCurrency"); //2
@@ -563,17 +584,370 @@ document.getElementById("fromCurrency").addEventListener("change", function () {
     var result = ((LTCUSDT * amount) / LTCUSDT).toFixed(4);
     amountsInput.value = result + " LTC";
   }
+  sex = result;
+});
+// /
+// ///
+// /
+// /////
+// ///
+// //
+// //
+// /
+// /
+
+document.getElementById("amount").addEventListener("change", function () {
+  const fromCurrency = document.getElementById("fromCurrency");
+  const toCurrency = document.getElementById("toCurrency");
+  const selectedFromCurrency = fromCurrency.value; // Получаем выбранную валюту1 из fromCurrency
+  const selectedtoCurrency = toCurrency.value; // Получаем выбранную валюту2 из toCurrency
+  var summ = this.value; // Получаем cумму
+  var amountsInput = document.getElementById("amounts");
+
+  if (selectedFromCurrency === "BTC" && selectedtoCurrency === "ETH") {
+    var result = ((BTCUSDT * summ) / ETHUSDT).toFixed(4);
+    amountsInput.value = result + " ETH";
+  } else if (selectedFromCurrency === "BTC" && selectedtoCurrency === "XRP") {
+    var result = ((BTCUSDT * summ) / XRPUSDT).toFixed(4);
+    amountsInput.value = result + " XRP";
+  } else if (selectedFromCurrency === "BTC" && selectedtoCurrency === "TON") {
+    var result = ((BTCUSDT * summ) / TONUSDT).toFixed(4);
+    amountsInput.value = result + " TON";
+  } else if (selectedFromCurrency === "BTC" && selectedtoCurrency === "SOL") {
+    var result = ((BTCUSDT * summ) / SOLUSDT).toFixed(4);
+    amountsInput.value = result + " SOL";
+  } else if (selectedFromCurrency === "BTC" && selectedtoCurrency === "TRX") {
+    var result = ((BTCUSDT * summ) / TRXUSDT).toFixed(4);
+    amountsInput.value = result + " TRX";
+  } else if (selectedFromCurrency === "BTC" && selectedtoCurrency === "DOT") {
+    var result = ((BTCUSDT * summ) / DOTUSDT).toFixed(4);
+    amountsInput.value = result + " DOT";
+  } else if (selectedFromCurrency === "BTC" && selectedtoCurrency === "ADA") {
+    var result = ((BTCUSDT * summ) / ADAUSDT).toFixed(4);
+    amountsInput.value = result + " ADA";
+  } else if (selectedFromCurrency === "BTC" && selectedtoCurrency === "LTC") {
+    var result = ((BTCUSDT * summ) / LTCUSDT).toFixed(4);
+    amountsInput.value = result + " LTC";
+  } else if (selectedFromCurrency === "BTC" && selectedtoCurrency === "BTC") {
+    var result = ((BTCUSDT * summ) / BTCUSDT).toFixed(4);
+    amountsInput.value = result + " BTC";
+  }
+
+  //ETH///
+  else if (selectedFromCurrency === "ETH" && selectedtoCurrency === "BTC") {
+    var result = ((ETHUSDT * summ) / BTCUSDT).toFixed(6);
+    amountsInput.value = result + " BTC";
+  } else if (selectedFromCurrency === "ETH" && selectedtoCurrency === "ETH") {
+    var result = ((ETHUSDT * summ) / ETHUSDT).toFixed(4);
+    amountsInput.value = result + " ETH";
+  } else if (selectedFromCurrency === "ETH" && selectedtoCurrency === "XRP") {
+    var result = ((ETHUSDT * summ) / XRPUSDT).toFixed(4);
+    amountsInput.value = result + " XRP";
+  } else if (selectedFromCurrency === "ETH" && selectedtoCurrency === "TON") {
+    var result = ((ETHUSDT * summ) / TONUSDT).toFixed(4);
+    amountsInput.value = result + " TON";
+  } else if (selectedFromCurrency === "ETH" && selectedtoCurrency === "SOL") {
+    var result = ((ETHUSDT * summ) / SOLUSDT).toFixed(4);
+    amountsInput.value = result + " SOL";
+  } else if (selectedFromCurrency === "ETH" && selectedtoCurrency === "TRX") {
+    var result = ((ETHUSDT * summ) / TRXUSDT).toFixed(4);
+    amountsInput.value = result + " TRX";
+  } else if (selectedFromCurrency === "ETH" && selectedtoCurrency === "DOT") {
+    var result = ((ETHUSDT * summ) / DOTUSDT).toFixed(4);
+    amountsInput.value = result + " DOT";
+  } else if (selectedFromCurrency === "ETH" && selectedtoCurrency === "ADA") {
+    var result = ((ETHUSDT * summ) / ADAUSDT).toFixed(4);
+    amountsInput.value = result + " ADA";
+  } else if (selectedFromCurrency === "ETH" && selectedtoCurrency === "LTC") {
+    var result = ((ETHUSDT * summ) / LTCUSDT).toFixed(4);
+    amountsInput.value = result + " LTC";
+  }
+  //XRP///
+  else if (selectedFromCurrency === "XRP" && selectedtoCurrency === "BTC") {
+    var result = ((XRPUSDT * summ) / BTCUSDT).toFixed(6);
+    amountsInput.value = result + " BTC";
+  } else if (selectedFromCurrency === "XRP" && selectedtoCurrency === "ETH") {
+    var result = ((XRPUSDT * summ) / ETHUSDT).toFixed(4);
+    amountsInput.value = result + " ETH";
+  } else if (selectedFromCurrency === "XRP" && selectedtoCurrency === "XRP") {
+    var result = ((XRPUSDT * summ) / XRPUSDT).toFixed(4);
+    amountsInput.value = result + " XRP";
+  } else if (selectedFromCurrency === "XRP" && selectedtoCurrency === "TON") {
+    var result = ((XRPUSDT * summ) / TONUSDT).toFixed(4);
+    amountsInput.value = result + " TON";
+  } else if (selectedFromCurrency === "XRP" && selectedtoCurrency === "SOL") {
+    var result = ((XRPUSDT * summ) / SOLUSDT).toFixed(4);
+    amountsInput.value = result + " SOL";
+  } else if (selectedFromCurrency === "XRP" && selectedtoCurrency === "TRX") {
+    var result = ((XRPUSDT * summ) / TRXUSDT).toFixed(4);
+    amountsInput.value = result + " TRX";
+  } else if (selectedFromCurrency === "XRP" && selectedtoCurrency === "DOT") {
+    var result = ((XRPUSDT * summ) / DOTUSDT).toFixed(4);
+    amountsInput.value = result + " DOT";
+  } else if (selectedFromCurrency === "XRP" && selectedtoCurrency === "ADA") {
+    var result = ((XRPUSDT * summ) / ADAUSDT).toFixed(4);
+    amountsInput.value = result + " ADA";
+  } else if (selectedFromCurrency === "XRP" && selectedtoCurrency === "LTC") {
+    var result = ((XRPUSDT * summ) / LTCUSDT).toFixed(4);
+    amountsInput.value = result + " LTC";
+  }
+  //TON///
+  else if (selectedFromCurrency === "TON" && selectedtoCurrency === "BTC") {
+    var result = ((TONUSDT * summ) / BTCUSDT).toFixed(6);
+    amountsInput.value = result + " BTC";
+  } else if (selectedFromCurrency === "TON" && selectedtoCurrency === "ETH") {
+    var result = ((TONUSDT * summ) / ETHUSDT).toFixed(4);
+    amountsInput.value = result + " ETH";
+  } else if (selectedFromCurrency === "TON" && selectedtoCurrency === "XRP") {
+    var result = ((TONUSDT * summ) / XRPUSDT).toFixed(4);
+    amountsInput.value = result + " XRP";
+  } else if (selectedFromCurrency === "TON" && selectedtoCurrency === "TON") {
+    var result = ((TONUSDT * summ) / TONUSDT).toFixed(4);
+    amountsInput.value = result + " TON";
+  } else if (selectedFromCurrency === "TON" && selectedtoCurrency === "SOL") {
+    var result = ((TONUSDT * summ) / SOLUSDT).toFixed(4);
+    amountsInput.value = result + " SOL";
+  } else if (selectedFromCurrency === "TON" && selectedtoCurrency === "TRX") {
+    var result = ((TONUSDT * summ) / TRXUSDT).toFixed(4);
+    amountsInput.value = result + " TRX";
+  } else if (selectedFromCurrency === "TON" && selectedtoCurrency === "DOT") {
+    var result = ((TONUSDT * summ) / DOTUSDT).toFixed(4);
+    amountsInput.value = result + " DOT";
+  } else if (selectedFromCurrency === "TON" && selectedtoCurrency === "ADA") {
+    var result = ((TONUSDT * summ) / ADAUSDT).toFixed(4);
+    amountsInput.value = result + " ADA";
+  } else if (selectedFromCurrency === "TON" && selectedtoCurrency === "LTC") {
+    var result = ((TONUSDT * summ) / LTCUSDT).toFixed(4);
+    amountsInput.value = result + " LTC";
+  }
+  //SOL///
+  else if (selectedFromCurrency === "SOL" && selectedtoCurrency === "BTC") {
+    var result = ((SOLUSDT * summ) / BTCUSDT).toFixed(6);
+    amountsInput.value = result + " BTC";
+  } else if (selectedFromCurrency === "SOL" && selectedtoCurrency === "ETH") {
+    var result = ((SOLUSDT * summ) / ETHUSDT).toFixed(4);
+    amountsInput.value = result + " ETH";
+  } else if (selectedFromCurrency === "SOL" && selectedtoCurrency === "XRP") {
+    var result = ((SOLUSDT * summ) / XRPUSDT).toFixed(4);
+    amountsInput.value = result + " XRP";
+  } else if (selectedFromCurrency === "SOL" && selectedtoCurrency === "TON") {
+    var result = ((SOLUSDT * summ) / TONUSDT).toFixed(4);
+    amountsInput.value = result + " TON";
+  } else if (selectedFromCurrency === "SOL" && selectedtoCurrency === "SOL") {
+    var result = ((SOLUSDT * summ) / SOLUSDT).toFixed(4);
+    amountsInput.value = result + " SOL";
+  } else if (selectedFromCurrency === "SOL" && selectedtoCurrency === "TRX") {
+    var result = ((SOLUSDT * summ) / TRXUSDT).toFixed(4);
+    amountsInput.value = result + " TRX";
+  } else if (selectedFromCurrency === "SOL" && selectedtoCurrency === "DOT") {
+    var result = ((SOLUSDT * summ) / DOTUSDT).toFixed(4);
+    amountsInput.value = result + " DOT";
+  } else if (selectedFromCurrency === "SOL" && selectedtoCurrency === "ADA") {
+    var result = ((SOLUSDT * summ) / ADAUSDT).toFixed(4);
+    amountsInput.value = result + " ADA";
+  } else if (selectedFromCurrency === "SOL" && selectedtoCurrency === "LTC") {
+    var result = ((SOLUSDT * summ) / LTCUSDT).toFixed(4);
+    amountsInput.value = result + " LTC";
+  }
+  //TRX///
+  else if (selectedFromCurrency === "TRX" && selectedtoCurrency === "BTC") {
+    var result = ((TRXUSDT * summ) / BTCUSDT).toFixed(6);
+    amountsInput.value = result + "BTC";
+  } else if (selectedFromCurrency === "TRX" && selectedtoCurrency === "ETH") {
+    var result = ((TRXUSDT * summ) / ETHUSDT).toFixed(4);
+    amountsInput.value = result + " ETH";
+  } else if (selectedFromCurrency === "TRX" && selectedtoCurrency === "XRP") {
+    var result = ((TRXUSDT * summ) / XRPUSDT).toFixed(4);
+    amountsInput.value = result + " XRP";
+  } else if (selectedFromCurrency === "TRX" && selectedtoCurrency === "TON") {
+    var result = ((TRXUSDT * summ) / TONUSDT).toFixed(4);
+    amountsInput.value = result + " TON";
+  } else if (selectedFromCurrency === "TRX" && selectedtoCurrency === "SOL") {
+    var result = ((TRXUSDT * summ) / SOLUSDT).toFixed(4);
+    amountsInput.value = result + " SOL";
+  } else if (selectedFromCurrency === "TRX" && selectedtoCurrency === "TRX") {
+    var result = ((TRXUSDT * summ) / TRXUSDT).toFixed(4);
+    amountsInput.value = result + " TRX";
+  } else if (selectedFromCurrency === "TRX" && selectedtoCurrency === "DOT") {
+    var result = ((TRXUSDT * summ) / DOTUSDT).toFixed(4);
+    amountsInput.value = result + " DOT";
+  } else if (selectedFromCurrency === "TRX" && selectedtoCurrency === "ADA") {
+    var result = ((TRXUSDT * summ) / ADAUSDT).toFixed(4);
+    amountsInput.value = result + " ADA";
+  } else if (selectedFromCurrency === "TRX" && selectedtoCurrency === "LTC") {
+    var result = ((TRXUSDT * summ) / LTCUSDT).toFixed(4);
+    amountsInput.value = result + " LTC";
+  }
+  //DOT///
+  else if (selectedFromCurrency === "DOT" && selectedtoCurrency === "BTC") {
+    var result = ((DOTUSDT * summ) / BTCUSDT).toFixed(6);
+    amountsInput.value = result + " BTC";
+  } else if (selectedFromCurrency === "DOT" && selectedtoCurrency === "ETH") {
+    var result = ((DOTUSDT * summ) / ETHUSDT).toFixed(4);
+    amountsInput.value = result + " ETH";
+  } else if (selectedFromCurrency === "DOT" && selectedtoCurrency === "XRP") {
+    var result = ((DOTUSDT * summ) / XRPUSDT).toFixed(4);
+    amountsInput.value = result + " XRP";
+  } else if (selectedFromCurrency === "DOT" && selectedtoCurrency === "TON") {
+    var result = ((DOTUSDT * summ) / TONUSDT).toFixed(4);
+    amountsInput.value = result + " TON";
+  } else if (selectedFromCurrency === "DOT" && selectedtoCurrency === "SOL") {
+    var result = ((DOTUSDT * summ) / SOLUSDT).toFixed(4);
+    amountsInput.value = result + " SOL";
+  } else if (selectedFromCurrency === "DOT" && selectedtoCurrency === "TRX") {
+    var result = ((DOTUSDT * summ) / TRXUSDT).toFixed(4);
+    amountsInput.value = result + " TRX";
+  } else if (selectedFromCurrency === "DOT" && selectedtoCurrency === "DOT") {
+    var result = ((DOTUSDT * summ) / DOTUSDT).toFixed(4);
+    amountsInput.value = result + " DOT";
+  } else if (selectedFromCurrency === "DOT" && selectedtoCurrency === "ADA") {
+    var result = ((DOTUSDT * summ) / ADAUSDT).toFixed(4);
+    amountsInput.value = result + " ADA";
+  } else if (selectedFromCurrency === "DOT" && selectedtoCurrency === "LTC") {
+    var result = ((DOTUSDT * summ) / LTCUSDT).toFixed(4);
+    amountsInput.value = result + " LTC";
+  }
+  //ADA///
+  else if (
+    selectedFromCurrency === "ADA" &&
+    selectedtoCurrencyselectedtoCurrency === "BTC"
+  ) {
+    var result = ((ADAUSDT * summ) / BTCUSDT).toFixed(6);
+    amountsInput.value = result + " BTC";
+  } else if (
+    selectedFromCurrency === "ADA" &&
+    selectedtoCurrencyselectedtoCurrency === "ETH"
+  ) {
+    var result = ((ADAUSDT * summ) / ETHUSDT).toFixed(4);
+    amountsInput.value = result + " ETH";
+  } else if (
+    selectedFromCurrency === "ADA" &&
+    selectedtoCurrencyselectedtoCurrency === "XRP"
+  ) {
+    var result = ((ADAUSDT * summ) / XRPUSDT).toFixed(4);
+    amountsInput.value = result + " XRP";
+  } else if (
+    selectedFromCurrency === "ADA" &&
+    selectedtoCurrencyselectedtoCurrency === "TON"
+  ) {
+    var result = ((ADAUSDT * summ) / TONUSDT).toFixed(4);
+    amountsInput.value = result + " TON";
+  } else if (
+    selectedFromCurrency === "ADA" &&
+    selectedtoCurrencyselectedtoCurrency === "SOL"
+  ) {
+    var result = ((ADAUSDT * summ) / SOLUSDT).toFixed(4);
+    amountsInput.value = result + " SOL";
+  } else if (
+    selectedFromCurrency === "ADA" &&
+    selectedtoCurrencyselectedtoCurrency === "TRX"
+  ) {
+    var result = ((ADAUSDT * summ) / TRXUSDT).toFixed(4);
+    amountsInput.value = result + " TRX";
+  } else if (
+    selectedFromCurrency === "ADA" &&
+    selectedtoCurrencyselectedtoCurrency === "DOT"
+  ) {
+    var result = ((ADAUSDT * summ) / DOTUSDT).toFixed(4);
+    amountsInput.value = result + " DOT";
+  } else if (
+    selectedFromCurrency === "ADA" &&
+    selectedtoCurrencyselectedtoCurrency === "ADA"
+  ) {
+    var result = ((ADAUSDT * summ) / ADAUSDT).toFixed(4);
+    amountsInput.value = result + " ADA";
+  } else if (
+    selectedFromCurrency === "ADA" &&
+    selectedtoCurrencyselectedtoCurrency === "LTC"
+  ) {
+    var result = ((ADAUSDT * summ) / LTCUSDT).toFixed(4);
+    amountsInput.value = result + " LTC";
+  }
+  //ADA///
+  else if (
+    selectedFromCurrency === "LTC" &&
+    selectedtoCurrencyselectedtoCurrencyselectedtoCurrency === "BTC"
+  ) {
+    var result = ((LTCUSDT * summ) / BTCUSDT).toFixed(6);
+    amountsInput.value = result + " BTC";
+  } else if (
+    selectedFromCurrency === "LTC" &&
+    selectedtoCurrencyselectedtoCurrencyselectedtoCurrency === "ETH"
+  ) {
+    var result = ((LTCUSDT * summ) / ETHUSDT).toFixed(4);
+    amountsInput.value = result + " ETH";
+  } else if (
+    selectedFromCurrency === "LTC" &&
+    selectedtoCurrencyselectedtoCurrencyselectedtoCurrency === "XRP"
+  ) {
+    var result = ((LTCUSDT * summ) / XRPUSDT).toFixed(4);
+    amountsInput.value = result + " XRP";
+  } else if (
+    selectedFromCurrency === "LTC" &&
+    selectedtoCurrencyselectedtoCurrencyselectedtoCurrency === "TON"
+  ) {
+    var result = ((LTCUSDT * summ) / TONUSDT).toFixed(4);
+    amountsInput.value = result + " TON";
+  } else if (
+    selectedFromCurrency === "LTC" &&
+    selectedtoCurrencyselectedtoCurrencyselectedtoCurrency === "SOL"
+  ) {
+    var result = ((LTCUSDT * summ) / SOLUSDT).toFixed(4);
+    amountsInput.value = result + " SOL";
+  } else if (
+    selectedFromCurrency === "LTC" &&
+    selectedtoCurrencyselectedtoCurrencyselectedtoCurrency === "TRX"
+  ) {
+    var result = ((LTCUSDT * summ) / TRXUSDT).toFixed(4);
+    amountsInput.value = result + " TRX";
+  } else if (
+    selectedFromCurrency === "LTC" &&
+    selectedtoCurrencyselectedtoCurrencyselectedtoCurrency === "DOT"
+  ) {
+    var result = ((LTCUSDT * summ) / DOTUSDT).toFixed(4);
+    amountsInput.value = result + " DOT";
+  } else if (
+    selectedFromCurrency === "LTC" &&
+    selectedtoCurrencyselectedtoCurrencyselectedtoCurrency === "ADA"
+  ) {
+    var result = ((LTCUSDT * summ) / ADAUSDT).toFixed(4);
+    amountsInput.value = result + " ADA";
+  } else if (
+    selectedFromCurrency === "LTC" &&
+    selectedtoCurrencyselectedtoCurrencyselectedtoCurrency === "LTC"
+  ) {
+    var result = ((LTCUSDT * summ) / LTCUSDT).toFixed(4);
+    amountsInput.value = result + " LTC";
+  }
+  sex = result;
 });
 
-const amount2 = document.getElementById("amount").value; // значение в 1 строке
-const exchangeForm = document.querySelector(".exchange-form");
-const startBySection = document.querySelector(".start_by");
-const exchangeButton = document.getElementById("exchange-button");
+function validateForm() {
+  var amount = document.getElementById("amount").value; //число1
+  var fromCurrency = document.getElementById("fromCurrency").value; //вал1
+  var toCurrency = document.getElementById("toCurrency").value; //вал2
 
-exchangeButton.addEventListener("click", function () {
-  // Скрываем форму обмена
+  if (amount == "" && fromCurrency == "" && toCurrency == "") {
+    alert("Пожалуйста, заполните все поля!");
+    return false;
+  } else if (amount <= 0) {
+    alert("Сумма должна быть больше 0!");
+    return false;
+  } else if (fromCurrency == toCurrency) {
+    alert("Валюты обмена не должны совпадать!");
+    return false;
+  } else {
+    var user_trade_num_s = document.getElementById("user_trade_num");
+    var user_trade_val_s = document.getElementById("user_trade_val");
+    var colldown_trade_num_s = document.getElementById("colldown_trade_num");
+    var colldown_trade_val_s = document.getElementById("colldown_trade_val");
 
-  exchangeForm.style.display = "none";
-  // Показываем начальный блок
-  startBySection.style.display = "block";
-});
+    // document.querySelector(".exchange-form").style.display = "none";
+    // document.querySelector(".obmen").style.display = "block";
+
+    user_trade_num_s.textContent = amount;
+    user_trade_val_s.textContent = fromCurrency;
+    colldown_trade_val_s.textContent = sex;
+    colldown_trade_num_s.textContent = toCurrency;
+  }
+}
