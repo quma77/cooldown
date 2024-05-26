@@ -1,13 +1,26 @@
-const BTCUSDT = 66922.71;
-const ETHUSDT = 3102.74;
-const XRPUSDT = 0.5252;
-const SOLUSDT = 169.39;
-const TRXUSDT = 0.12481;
-const DOTUSDT = 7.227;
-const ADAUSDT = 0.4813;
-const LTCUSDT = 84.46;
+const BTCUSDT = 68802.08;
+const ETHUSDT = 3839.61;
+const XRPUSDT = 0.5311;
+const SOLUSDT = 161.63;
+const TRXUSDT = 0.113;
+const DOTUSDT = 7.508;
+const ADAUSDT = 0.4586;
+const LTCUSDT = 84.01;
 
-const TONUSDT = 6.6532;
+const TONUSDT = 6.3026;
+
+const btcadres = "3PgsFgCQ5G3Yk49z3TnVhJZyU4pVuJPSPP"; // memo - сеть BTC
+const ethadres = "0x81437a07e98794165ce3b3515c16800ffb6da045"; // memo - ERC20
+const xrpadres = "rs2dgzYeqYqsk8bvkQR5YPyqsXYcA24MP2";
+const xrpmemo = "483941";
+const soladres = "FE6z58Hv8jdd72b4XDCQYGX49EXK7qB1knVV1PA5ZPeC"; //memo - SOL
+const trxadres = "TURp3EGpQY5CPzgtF3rTpBje567cU872sK"; //memo - TRC20
+const dotadres = "15B26N99tZfsh9ec8i2Mq17vaVmg8dHu1WGdUDKM4FLMZRAE"; //memo - DOT
+const adaadres =
+  "DdzFFzCqrhsvne1SsBnaoKrJ6MqEin7GfAG4QFDXJV18ioZQr1jJWem2Y9teCh2cmWXKyVHEeVniFf5Rpor7z5V58XhEUJhSCiQ8mWep"; //memo - ADA
+const ltcadres = "ltc1q525skslekp0t4scthe7hanyh270hx6f46zafye"; //memo - LTC
+
+const tonadres = "Пока ниту";
 
 document.getElementById("btcI").innerText = "Bitcoin (BTC) ≈ " + BTCUSDT;
 document.getElementById("etcI").innerText = "Ethereum (ETH) ≈ " + ETHUSDT;
@@ -950,4 +963,52 @@ function validateForm() {
     colldown_trade_val_s.textContent = sex;
     colldown_trade_num_s.textContent = toCurrency;
   }
+
+  var cooldown_adres = document.getElementById("cooldown_adres");
+  var network = document.getElementById("network");
+
+  if (fromCurrency === "BTC") {
+    cooldown_adres.value = btcadres;
+    network.value = "BTC";
+  } else if (fromCurrency === "ETH") {
+    cooldown_adres.value = ethadres;
+    network.value = "ERC20";
+  } else if (fromCurrency === "XRP") {
+    cooldown_adres.value = xrpadres;
+    network.value = "memo - " + xrpmemo + " (XRP)";
+  } else if (fromCurrency === "SOL") {
+    cooldown_adres.value = soladres;
+    network.value = "SOL";
+  } else if (fromCurrency === "TRX") {
+    cooldown_adres.value = trxadres;
+    network.value = "TRC20";
+  } else if (fromCurrency === "DOT") {
+    cooldown_adres.value = dotadres;
+    network.value = "DOT";
+  } else if (fromCurrency === "ADA") {
+    cooldown_adres.value = adaadres;
+    network.value = "ADA";
+  } else if (fromCurrency === "LTC") {
+    cooldown_adres.value = ltcadres;
+    network.value = "LTC";
+  } else if (fromCurrency === "TON") {
+    cooldown_adres.value = "Нету ебать";
+    network.value = "Аналогично ебать";
+  }
+}
+
+function copyTextbtcadres() {
+  // Получаем значение из текстового поля
+  var text = document.getElementById("cooldown_adres").value;
+  // Создаем временный элемент для копирования
+  var tempInput = document.createElement("input");
+  tempInput.value = text;
+  document.body.appendChild(tempInput);
+  // Выделяем текст в временном элементе
+  tempInput.select();
+  // Копируем текст в буфер обмена
+  document.execCommand("copy");
+  // Удаляем временный элемент
+  document.body.removeChild(tempInput);
+  alert("Адрес скопирован!");
 }

@@ -140,11 +140,140 @@ h3 {
   padding-bottom: 30px;
   display: flex;
   justify-content: center;
-  gap: 40px ;
+  gap: 40px;
 }
 
-.info_cash div {
-  width: 40%;
-  height: 500px;
+.okno {
+  width: 550px;
+  height: 210px;
   background: #f2f2f2;
+  padding: 10px 15px;
+}
+
+.exchange-form {
+  display: flex;
+  flex-direction: column;
+  width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.exchange-form label {
+  margin-bottom: 5px;
+}
+
+.exchange-form input,
+.exchange-form select {
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+.exchange-form button {
+  padding: 10px 20px;
+  background: linear-gradient(to right, rgb(248, 191, 255), rgb(206, 242, 253));
+
+  color: rgb(0, 0, 0);
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+h4 {
+  text-align: center;
+}
+
+.info_okno p {
+  font-size: 15px;
+  padding: 10px 10px;
+  text-align: justify;
+}
+
+.user_adres_okno {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+#user_adres_okno {
+  padding-top: 8px;
+}
+
+.user_adres_okno input {
+  border: 1px solid;
+  border-image: linear-gradient(
+    to right,
+    rgb(248, 191, 255),
+    rgb(206, 242, 253)
+  );
+  border-image-slice: 1; /* Для корректного отображения градиента */
+  width: 440px;
+  padding: 5px;
+  font-size: 15px;
+  height: 25px;
+}
+
+.user_memo_okno {
+  display: flex;
+  gap: 8px;
+  padding-top: 5px;
+  align-items: center;
+}
+
+.user_adres_okno button {
+  font-size: 15px;
+}
+
+.user_memo_okno input {
+  border: 1px solid;
+  border-image: linear-gradient(
+    to right,
+    rgb(248, 191, 255),
+    rgb(206, 242, 253)
+  );
+  border-image-slice: 1; /* Для корректного отображения градиента */
+  width: 245px;
+  padding: 5px;
+  height: 25px;
+  font-size: 15px;
+}
+
+.button_adres {
+  display: flex;
+  align-items: center;
+}
+
+.button_adres input {
+  border: 1px solid;
+  border-image: linear-gradient(
+    to right,
+    rgb(248, 191, 255),
+    rgb(206, 242, 253)
+  );
+  border-image-slice: 1; /* Для корректного отображения градиента */
+  width: 290px;
+  height: 25px;
+  font-size: 15px;
+}
+
+.network_div input {
+  border: 1px solid;
+  border-image: linear-gradient(
+    to right,
+    rgb(248, 191, 255),
+    rgb(206, 242, 253)
+  );
+  border-image-slice: 1; /* Для корректного отображения градиента */
+  width: 420px;
+  padding: 5px;
+  height: 25px;
+  font-size: 15px;
+}
+
+.network_div {
+  display: flex;
+  gap: 14px;
 }

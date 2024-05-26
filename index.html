@@ -92,12 +92,62 @@
           <div id="colldown_trade_num"></div>
         </div>
         <div class="info_cash">
-          <div cooldown_rec></div>
-          <div user_rec></div>
+          <div class="okno">
+            <div class="info_okno">
+              <h4>Рекевизиты для отправки</h4>
+              <p>
+                ℹ️ Убедитесь, что выбранная вами криптовалюта и сеть депозита
+                совпадают с информацией на платформе обмена, с которой вы
+                проводите сделку В противном случае ваши средства не будут
+                зачислены и не смогут быть возвращены.
+              </p>
+            </div>
+            <div class="user_adres_okno">
+              <div><label>Адрес</label></div>
+              <div class="button_adres">
+                <input
+                  type="text"
+                  id="cooldown_adres"
+                  required
+                  readonly
+                  value=""
+                />
+                <button onclick="copyTextbtcadres()">Копировать</button>
+              </div>
+            </div>
+            <div class="network_div">
+              <div><label>Сеть</label></div>
+              <div class="network">
+                <input type="text" id="network" required readonly value="" />
+              </div>
+            </div>
+          </div>
+          <div class="okno">
+            <div class="info_okno">
+              <h4>Рекевизиты для получения</h4>
+              <p>
+                ℹ️ Убедитесь, что выбранная вами криптовалюта и сеть депозита
+                совпадают с информацией на платформе обмена, с которой вы
+                проводите сделку В противном случае ваши средства не будут
+                зачислены и не смогут быть возвращены.
+              </p>
+            </div>
+            <div class="user_adres_okno" id="user_adres_okno">
+              <div><label>Адрес</label></div>
+              <div>
+                <input type="text" placeholder="Введите адрес" required />
+              </div>
+            </div>
+            <div class="user_memo_okno" id="user_memo">
+              <div><label>Идентификатор [Мемо/Тег] </label></div>
+              <div>
+                <input type="text" placeholder="Введите [Мемо/Тег]" required />
+              </div>
+            </div>
+          </div>
         </div>
       </section>
     </main>
-
     <footer>
       <p>&copy; 2024 Криптовалютный обмен. Все права защищены.</p>
     </footer>
